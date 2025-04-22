@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronGrid Systems - Gestión Moderna de Tareas en Construcción</title>
+    <meta name="description" content="IronGrid Systems: Plataforma open-source para gestionar tareas en construcción. Optimiza tu obra con herramientas intuitivas y colaborativas.">
+    <meta name="keywords" content="gestión de construcción, software open-source, tareas en obra, coordinación de equipos">
+    <meta name="author" content="IronGrid Systems Team">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #FFFFFF; /* Blanco */
+            color: #1A1A1A; /* Gris oscuro */
+            line-height: 1.6;
+        }
+        /* Sticky Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: #004E7C; /* Azul oscuro */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #FFFFFF; /* Blanco */
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #FFFFFF; /* Blanco */
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #FFD700; /* Amarillo */
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #004E7C 50%, #C41E3A 50%);
+            padding: 80px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            color: #FFFFFF; /* Blanco */
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.2em;
+            color: #FFFFFF; /* Blanco */
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        .cta-button {
+            background-color: #FFFFFF; /* Rojo */
+            color: #1A1A1A; /* Blanco */
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            background-color: #FFD700; /* Amarillo */
+            color: #1A1A1A; /* Gris oscuro */
+            transform: scale(1.05);
+        }
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background-color: #F8F9FA; /* Gris claro para contraste */
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 2.5em;
+            color: #004E7C; /* Azul oscuro */
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            background-color: #FFFFFF; /* Blanco */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card h3 {
+            font-size: 1.4em;
+            color: #C41E3A; /* Rojo */
+            margin-bottom: 15px;
+        }
+        .feature-card p {
+            font-size: 1em;
+            color: #1A1A1A; /* Gris oscuro */
+        }
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 20px;
+            background-color: #FFFFFF; /* Blanco */
+            text-align: center;
+        }
+        .testimonials h2 {
+            font-size: 2.5em;
+            color: #004E7C; /* Azul oscuro */
+            margin-bottom: 50px;
+        }
+        .testimonial-card {
+            background-color: #F8F9FA; /* Gris claro */
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-card p {
+            font-size: 1.1em;
+            color: #1A1A1A; /* Gris oscuro */
+            margin-bottom: 15px;
+        }
+        .testimonial-card span {
+            font-size: 0.9em;
+            color: #004E7C; /* Azul oscuro */
+            font-weight: 600;
+        }
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #C41E3A 50%, #004E7C 50%);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2.5em;
+            color: #FFFFFF; /* Blanco */
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            font-size: 1.2em;
+            color: #FFFFFF; /* Blanco */
+            margin-bottom: 30px;
+        }
+        /* Footer */
+        footer {
+            background-color: #1A1A1A; /* Gris oscuro */
+            color: #FFFFFF; /* Blanco */
+            padding: 40px 20px;
+            text-align: center;
+        }
+        footer p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        footer .social-links a {
+            color: #FFD700; /* Amarillo */
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1em;
+        }
+        footer .social-links a:hover {
+            color: #FFFFFF; /* Blanco */
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .features h2, .testimonials h2, .cta-section h2 {
+                font-size: 1.8em;
+            }
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">IronGrid Systems</div>
+        <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#features">Funcionalidades</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>Simplifica la Gestión de Tareas en Construcción</h1>
+        <p>IronGrid Systems: La plataforma open-source que optimiza la coordinación en obra para empresas medianas.</p>
+        <a href="#cta" class="cta-button">Prueba Gratis Ahora</a>
+    </section>
+
+    <section class="features" id="features">
+        <h2>Funcionalidades Diseñadas para la Obra</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Agrupación Dinámica de Tareas</h3>
+                <p>Organiza tareas por zona, oficio o urgencia para un control contextual en obra.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Anotaciones Sin Conexión</h3>
+                <p>Marca planos y agrega notas de voz sin internet, ideal para sitios remotos.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Tableros por Rol</h3>
+                <p>Interfaces personalizadas para obreros, capataces y gerentes con acciones rápidas.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Micro-Planificación Diaria</h3>
+                <p>Crea planes diarios en reuniones matutinas y compártelos al instante.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Visualizador de Dependencias</h3>
+                <p>Visualiza cómo los retrasos afectan otras tareas y ajusta recursos en tiempo real.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Biblioteca de Plantillas Comunitaria</h3>
+                <p>Accede a flujos de trabajo open-source creados por la comunidad y personalízalos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>Lo que Dicen Nuestros Usuarios</h2>
+        <div class="testimonial-card">
+            <p>"IronGrid ha transformado cómo coordinamos nuestras obras. Las anotaciones sin conexión son un salvavidas en sitios remotos."</p>
+            <span>— Juan Pérez, Capataz</span>
+        </div>
+        <div class="testimonial-card">
+            <p>"La micro-planificación diaria nos ayuda a mantener al equipo enfocado y productivo cada día."</p>
+            <span>— María Gómez, Jefa de Obras</span>
+        </div>
+    </section>
+
+    <section class="cta-section" id="cta">
+        <h2>Empieza a Optimizar Tus Proyectos Hoy</h2>
+        <p>Regístrate gratis y descubre cómo IronGrid Systems puede transformar tu obra.</p>
+        <a href="#" class="cta-button">Comienza Ahora</a>
+    </section>
+
+    <footer id="contact">
+        <p>© 2024 IronGrid Systems. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#">Twitter</a> | 
+            <a href="#">LinkedIn</a> | 
+            <a href="https://github.com/IronGrid">GitHub</a>
+        </div>
+        <p><a href="#">Contáctanos</a> | <a href="#">Política de Privacidad</a></p>
+    </footer>
+</body>
+</html>
